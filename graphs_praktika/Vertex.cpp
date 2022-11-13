@@ -11,6 +11,12 @@ Vertex::Vertex(std::string name){
     this -> name = name;
 }
 
+Vertex::~Vertex(){
+    for (Edge edge : edges) {
+        edge.~Edge();
+    }
+}
+
 void Vertex::editVertex(std::string newName){
     name = newName;
 }

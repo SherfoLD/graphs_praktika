@@ -7,11 +7,8 @@
 
 #include <iostream>
 #include "Edge.hpp"
-#include "Vertex.hpp"
 
-Edge::Edge(Vertex* edgeFrom, Vertex* edgeTo, int value){
-    this -> edgeFrom = edgeFrom;
-    this -> edgeTo = edgeTo;
+Edge::Edge(int value){
     this -> value = value;
 }
 

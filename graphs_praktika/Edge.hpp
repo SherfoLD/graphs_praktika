@@ -10,16 +10,14 @@
 
 #include <stdio.h>
 #include <iostream>
-#include "Vertex.hpp"
+
 
 class Edge{ //duga
 private:
-    Vertex* edgeFrom;
-    Vertex* edgeTo;
     int value;
     
 public:
-    Edge(Vertex* edgeFrom, Vertex* edgeTo, int value);
+    Edge(int value);
     ~Edge();
     void editEdge(int newValue);
 };

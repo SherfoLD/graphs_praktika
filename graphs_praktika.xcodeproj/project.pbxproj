@@ -65,9 +65,9 @@
 			children = (
 				4D1ABF41290004CF0050EC5C /* main.cpp */,
 				4D5ACDB2291A94FB00756D60 /* Vertex.cpp */,
+				4D5ACDB6291A952000756D60 /* Edge.hpp */,
 				4D5ACDB3291A94FB00756D60 /* Vertex.hpp */,
 				4D5ACDB5291A952000756D60 /* Edge.cpp */,
-				4D5ACDB6291A952000756D60 /* Edge.hpp */,
 			);
 			path = graphs_praktika;
 			sourceTree = "<group>";

@@ -10,16 +10,20 @@
 
 #include <iostream>
 #include <stdio.h>
+#include <vector>
 #include "Edge.hpp"
+
 
 class Vertex{ //vershina/uzel
 private:
     std::string name;
-    Edge* edges[];
+    std::vector<Edge> edges;
+    
     
 public:
     Vertex(std::string vertexName);
     ~Vertex();
+    
     void editVertex(std::string newName);
 };
 
