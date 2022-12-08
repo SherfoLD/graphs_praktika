@@ -18,7 +18,6 @@ private:
     
 public:
     Edge(int value);
-    ~Edge();
     void editEdge(int newValue);
 };
 
