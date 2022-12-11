@@ -8,23 +8,20 @@
 #ifndef Vertex_hpp
 #define Vertex_hpp
 
+#include <string>
 #include <list>
 #include <stdio.h>
-#include "Edge.hpp"
 
 
 class Vertex{ //vershina/uzel
 private:
     std::string name;
-    std::list<Edge> edges;
+    bool mark;
     
 public:
     Vertex();
     Vertex(std::string name);
-    ~Vertex();
-    
-    void editVertex(std::string newName);
-    void addEdge(Edge *newEdge);
+    void editVertex(bool newMark);
 };
 
 #endif /* Vertex_hpp */

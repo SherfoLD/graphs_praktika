@@ -10,14 +10,17 @@
 
 #include <stdio.h>
 #include <iostream>
+#include "Vertex.hpp"
 
 
 class Edge{ //duga
 private:
     int value;
+    Vertex originVertex;
+    Vertex destinationVertex;
     
 public:
-    Edge(int value);
+    Edge(Vertex originVertex, Vertex destinationVertex, int value);
     void editEdge(int newValue);
 };
 

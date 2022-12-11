@@ -8,7 +8,9 @@
 #include <iostream>
 #include "Edge.hpp"
 
-Edge::Edge(int value){
+Edge::Edge(Vertex originVertex, Vertex destinationVertex, int value){
+    this -> originVertex = originVertex;
+    this -> destinationVertex = destinationVertex;
     this -> value = value;
 }
 

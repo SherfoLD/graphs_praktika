@@ -9,8 +9,8 @@
 #define Graph_hpp
 
 #include <stdio.h>
-#include <vector>
-#include <map>
+#include <list>
+#include <unordered_map>
 #include "Vertex.hpp"
 #include "Edge.hpp"
 using namespace std;
@@ -18,15 +18,16 @@ using namespace std;
 
 class Graph{
 private:
-    //map<Vertex, set<Vertex>> adjacencyList;
-    map<string, map<string, Vertex>> adjacencyList;
+    list<list<string>> adjacencyList;
+    unordered_map<string, Vertex> vertexHashMap;
     
 public:
     Graph();
     //~Graph();
     void addVertex(string name);
-    void addEdge(string edgeFrom, string edgeTo, int value);
-
+    void addEdge(string originVertex, string destinationVertex, int value);
+    bool isContainsInList(string vertexName);
+    list<string> findInnerList(string vertexName);
 };
 
 #endif /* Graph_hpp */

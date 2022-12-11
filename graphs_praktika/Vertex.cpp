@@ -7,23 +7,17 @@
 
 #include "Vertex.hpp"
 
-Vertex::Vertex(){};
+
+Vertex::Vertex(){
+    this -> name = nullptr;
+    this -> mark = false;
+};
 
 Vertex::Vertex(std::string name){
     this -> name = name;
+    this -> mark = false;
 }
 
-Vertex::~Vertex(){
-    for (Edge edge : edges) {
-        edge.~Edge();
-    }
-    delete this;
-}
-
-void Vertex::editVertex(std::string newName){
-    name = newName;
-}
-
-void Vertex::addEdge(Edge *newEdge){
-    edges.push_back(*newEdge);
+void Vertex::editVertex(bool newMark){
+    this -> mark = newMark;
 }

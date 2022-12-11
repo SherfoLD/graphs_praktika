@@ -9,6 +9,9 @@ int main(int argc, const char * argv[]) {
     Graph graph{};
     graph.addVertex("A");
     graph.addVertex("B");
-    graph.addEdge("A", "B", 10);
+    cout << graph.isContainsInList("A");
+    cout << graph.isContainsInList("B");
+    cout << graph.isContainsInList("D");
+    //graph.addEdge("A", "B", 10);
     return 0;
 }
