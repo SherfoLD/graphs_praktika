@@ -20,31 +20,22 @@ int main(int argc, const char * argv[]) {
     graph.addEdge("5", "4", 54);
     graph.addEdge("4", "5", 45);
     
-    list<list<string>>::iterator iterator;
-    for (iterator = graph.adjacencyList -> begin(); iterator != graph.adjacencyList -> end(); iterator++)
-    {
-        list<string> innerList = *iterator;
-        list<string>::iterator innerIterator;
-        for (innerIterator = innerList.begin(); innerIterator != innerList.end(); innerIterator++)
-        {
-            cout << *innerIterator << " ";
+    for (auto const &key : graph.adjacencyList){
+        cout << key.first << ": ";
+        for (auto const &valueOfList : key.second){
+            cout << valueOfList << " ";
         }
         cout << "\n";
     }
     
     graph.findSimpleAllSimplePaths("1", "4");
-    /*
-    list<list<string>>::iterator iterator;
-    for (iterator = graph.simplePaths.begin(); iterator != graph.simplePaths.end(); iterator++)
-    {
-        list<string> innerList = *iterator;
-        list<string>::iterator innerIterator;
-        for (innerIterator = innerList.begin(); innerIterator != innerList.end(); innerIterator++)
-        {
-            cout << *innerIterator << " ";
+    
+    for (auto const &innerList : graph.simplePaths){
+        for (auto const &valueOfList :innerList){
+            cout << valueOfList << " ";
         }
         cout << "\n";
-    }*/
+    }
     
     return 0;
 }

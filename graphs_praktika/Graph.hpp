@@ -9,8 +9,10 @@
 #define Graph_hpp
 
 #include <stdio.h>
+#include <vector>
 #include <list>
 #include <unordered_map>
+#include <map>
 #include "Vertex.hpp"
 #include "Edge.hpp"
 using namespace std;
@@ -22,7 +24,7 @@ private:
     unordered_map<string, Vertex> vertexHashMap;
     
 public:
-    list<list<string>> *adjacencyList = new list<list<string>>();
+    map<string, list<string>> adjacencyList;
     list<string> currentPath;
     list<list<string>> simplePaths;
     Graph();
@@ -31,8 +33,6 @@ public:
     void addEdge(string originVertex, string destinationVertex, int value);
     void deleteVertex(string name);
     void findSimpleAllSimplePaths(string originVertex, string destinationVertex);
-    bool isContainsInList(string vertexName);
-    list<string> *findInnerList(string vertexName);
 };
 
 #endif /* Graph_hpp */
