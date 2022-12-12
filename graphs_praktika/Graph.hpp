@@ -18,16 +18,21 @@ using namespace std;
 
 class Graph{
 private:
-    list<list<string>> adjacencyList;
+
     unordered_map<string, Vertex> vertexHashMap;
     
 public:
+    list<list<string>> *adjacencyList = new list<list<string>>();
+    list<string> currentPath;
+    list<list<string>> simplePaths;
     Graph();
     //~Graph();
     void addVertex(string name);
     void addEdge(string originVertex, string destinationVertex, int value);
+    void deleteVertex(string name);
+    void findSimpleAllSimplePaths(string originVertex, string destinationVertex);
     bool isContainsInList(string vertexName);
-    list<string> findInnerList(string vertexName);
+    list<string> *findInnerList(string vertexName);
 };
 
 #endif /* Graph_hpp */

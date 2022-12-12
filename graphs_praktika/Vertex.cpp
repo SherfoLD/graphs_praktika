@@ -8,10 +8,7 @@
 #include "Vertex.hpp"
 
 
-Vertex::Vertex(){
-    this -> name = nullptr;
-    this -> mark = false;
-};
+Vertex::Vertex(){};
 
 Vertex::Vertex(std::string name){
     this -> name = name;

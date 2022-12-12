@@ -16,9 +16,10 @@
 class Vertex{ //vershina/uzel
 private:
     std::string name;
-    bool mark;
     
 public:
+    bool mark;
+    
     Vertex();
     Vertex(std::string name);
     void editVertex(bool newMark);

@@ -13,7 +13,7 @@ Graph::Graph(){
 
 bool Graph::isContainsInList(string vertexName){
     list<list<string>>::iterator iterator;
-    for (iterator = adjacencyList.begin(); iterator != adjacencyList.end(); iterator++)
+    for (iterator = adjacencyList -> begin(); iterator != adjacencyList -> end(); iterator++)
     {
         list<string> innerList = *iterator;
         if (innerList.front() == vertexName)
@@ -22,23 +22,23 @@ bool Graph::isContainsInList(string vertexName){
     return false;
 }
 
-list<string> Graph::findInnerList(string vertexName){
+list<string> *Graph::findInnerList(string vertexName){
     list<list<string>>::iterator iterator;
-    for (iterator = adjacencyList.begin(); iterator != adjacencyList.end(); iterator++)
+    for (iterator = adjacencyList -> begin(); iterator != adjacencyList -> end(); iterator++)
     {
         list<string> innerList = *iterator;
         if (innerList.front() == vertexName)
-            return innerList;
+            return &innerList;
     }
-    throw "\nEXCEPTION: Inner list can't be found";
+    throw  std::invalid_argument("\nEXCEPTION: Inner list can't be found");
 }
 
 void Graph::addVertex(string vertexName){
     if (isContainsInList(vertexName))
-        throw "\nEXCEPTION: Vertex already exists";
+        throw std::invalid_argument("\nEXCEPTION: Vertex already exists");
     
-    list<string> newVertexList {vertexName};
-    adjacencyList.push_back(newVertexList);
+    list<string> *newVertexList = new list<string>{vertexName};
+    adjacencyList -> push_back(*newVertexList);
     
     Vertex *newVertex = new Vertex(vertexName);
     vertexHashMap[vertexName] = *newVertex;
@@ -46,17 +46,52 @@ void Graph::addVertex(string vertexName){
 
 void Graph::addEdge(string originVertex, string destiantionVertex, int value){
     if (!isContainsInList(originVertex) || !isContainsInList(destiantionVertex))
-        throw "\nEXCEPTION: One of the Vertexes doesn't exist";
+        throw  std::invalid_argument("\nEXCEPTION: One of the Vertexes doesn't exist");
     
-    list<string> innerList = findInnerList(originVertex);
-    innerList.push_back(originVertex);
+    list<list<string>>::iterator iterator;
+    for (iterator = adjacencyList -> begin(); iterator != adjacencyList -> end(); iterator++)
+    {
+        (*iterator).push_back(destiantionVertex);
+    }
+    //findInnerList(originVertex).push_back(destiantionVertex);
+    //innerList -> push_back(destiantionVertex);
 }
 
-//deleteVertex, first, next. на edge похуй
-/*
-list<string>::iterator innerIterator;
-for (innerIterator=innerList.begin(); innerIterator != innerList.end(); innerIterator++)
-{
-    if (*innerIterator == vertexName)
-        return true;
-}*/
+void Graph::deleteVertex(string vertexName){
+    list<list<string>>::iterator iterator;
+    for (iterator = adjacencyList -> begin(); iterator != adjacencyList -> end(); iterator++)
+    {
+        list<string> innerList = *iterator;
+        innerList.remove(vertexName);
+    }
+    vertexHashMap[vertexName].~Vertex();
+    vertexHashMap.erase(vertexName);
+    
+    adjacencyList->remove(*findInnerList(vertexName));
+}
+
+void Graph::findSimpleAllSimplePaths(string originVertex, string destinationVertex){
+    if (vertexHashMap[originVertex].mark == true)
+        return;
+    
+    vertexHashMap[originVertex].mark = true;
+    currentPath.push_back(originVertex);
+    if (originVertex == destinationVertex){
+        simplePaths.push_back(currentPath);
+        vertexHashMap[originVertex].mark = false;
+        currentPath.pop_back();
+        return;
+    };
+    /*list<string> *currrentInnerList = findInnerList(originVertex);
+    list<string>::iterator iterator;
+    bool flag = false;
+    for (iterator = currrentInnerList -> begin(); iterator != currrentInnerList -> end(); iterator++)
+    {
+        if (flag == true)
+            findSimpleAllSimplePaths(*iterator, destinationVertex);
+        else
+            flag = true;
+    }*/
+}
+//first, next. на edge похуй
+
