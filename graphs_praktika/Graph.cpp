@@ -35,8 +35,7 @@ void Graph::deleteVertex(string vertexName){
             weightOfEdges.erase(position.first+vertexName);
         if (weightOfEdges.contains(vertexName+position.first))
             weightOfEdges.erase(vertexName+position.first);
-    };
-    
+    }
     vertexHashMap.erase(vertexName);
 }
 
@@ -90,7 +89,7 @@ string Graph::vertex(string keyVertex, string adjacentVertex){
 void Graph::print(){
     cout << "Graph:\n";
     for (auto const &key : adjacencyList){
-        cout << key.first << ": ";
+        cout << key.first << " -> ";
         for (auto const &valueOfList : key.second){
             cout << valueOfList << " ";
         }
@@ -110,7 +109,10 @@ void Graph::printSimplePaths(){
     }
 }
 
-void Graph::findSimpleAllSimplePaths(string originVertex, string destinationVertex){
+void Graph::findAllSimplePaths(string originVertex, string destinationVertex){
+    if (!adjacencyList.contains(originVertex) || !adjacencyList.contains(originVertex))
+        throw  std::invalid_argument("\nEXCEPTION: One of the Vertexes doesn't exist");
+    
     if (vertexHashMap[originVertex].mark == true)
         return;
     
@@ -121,9 +123,9 @@ void Graph::findSimpleAllSimplePaths(string originVertex, string destinationVert
         vertexHashMap[originVertex].editVertex(false);
         currentPath.pop_back();
         return;
-    };
+    }
     for (auto const &nextVertex : adjacencyList[originVertex]) {
-        findSimpleAllSimplePaths(nextVertex, destinationVertex);
+        findAllSimplePaths(nextVertex, destinationVertex);
     }
     currentPath.pop_back();
     vertexHashMap[originVertex].editVertex(false);

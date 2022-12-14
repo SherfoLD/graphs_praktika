@@ -35,7 +35,7 @@ public:
     string first(string vertexName);
     string next(string keyVertex, string startVertex);
     string vertex(string keyVertex, string adjacentVertex);
-    void findSimpleAllSimplePaths(string originVertex, string destinationVertex);
+    void findAllSimplePaths(string originVertex, string destinationVertex);
     void print();
     void printSimplePaths();
 };

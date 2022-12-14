@@ -21,7 +21,7 @@ int main(int argc, const char * argv[]) {
     graph.addEdge("4", "5", 45);
     
     graph.print();
-    graph.findSimpleAllSimplePaths("1", "4");
+    graph.findAllSimplePaths("1", "4");
     graph.printSimplePaths();
     
     return 0;
