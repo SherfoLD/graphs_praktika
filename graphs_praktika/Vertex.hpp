@@ -19,7 +19,7 @@ private:
     
 public:
     bool mark;
-    
+
     Vertex();
     Vertex(std::string name);
     void editVertex(bool newMark);

@@ -3,8 +3,8 @@
 #include "Graph.hpp"
 
 int main(int argc, const char * argv[]) {
-    
     Graph graph{};
+    
     graph.addVertex("1");
     graph.addVertex("2");
     graph.addVertex("3");
@@ -20,22 +20,9 @@ int main(int argc, const char * argv[]) {
     graph.addEdge("5", "4", 54);
     graph.addEdge("4", "5", 45);
     
-    for (auto const &key : graph.adjacencyList){
-        cout << key.first << ": ";
-        for (auto const &valueOfList : key.second){
-            cout << valueOfList << " ";
-        }
-        cout << "\n";
-    }
-    
+    graph.print();
     graph.findSimpleAllSimplePaths("1", "4");
-    
-    for (auto const &innerList : graph.simplePaths){
-        for (auto const &valueOfList :innerList){
-            cout << valueOfList << " ";
-        }
-        cout << "\n";
-    }
+    graph.printSimplePaths();
     
     return 0;
 }

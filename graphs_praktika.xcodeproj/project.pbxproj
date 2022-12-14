@@ -10,7 +10,6 @@
 		4D1ABF42290004CF0050EC5C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D1ABF41290004CF0050EC5C /* main.cpp */; };
 		4D2257EC29210D35005F5C10 /* Graph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D2257EA29210D35005F5C10 /* Graph.cpp */; };
 		4D5ACDB4291A94FB00756D60 /* Vertex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D5ACDB2291A94FB00756D60 /* Vertex.cpp */; };
-		4D5ACDB7291A952000756D60 /* Edge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D5ACDB5291A952000756D60 /* Edge.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,8 +31,6 @@
 		4D2257EB29210D35005F5C10 /* Graph.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Graph.hpp; sourceTree = "<group>"; };
 		4D5ACDB2291A94FB00756D60 /* Vertex.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vertex.cpp; sourceTree = "<group>"; };
 		4D5ACDB3291A94FB00756D60 /* Vertex.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Vertex.hpp; sourceTree = "<group>"; };
-		4D5ACDB5291A952000756D60 /* Edge.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Edge.cpp; sourceTree = "<group>"; };
-		4D5ACDB6291A952000756D60 /* Edge.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Edge.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +68,6 @@
 				4D2257EA29210D35005F5C10 /* Graph.cpp */,
 				4D5ACDB3291A94FB00756D60 /* Vertex.hpp */,
 				4D5ACDB2291A94FB00756D60 /* Vertex.cpp */,
-				4D5ACDB6291A952000756D60 /* Edge.hpp */,
-				4D5ACDB5291A952000756D60 /* Edge.cpp */,
 			);
 			path = graphs_praktika;
 			sourceTree = "<group>";
@@ -135,7 +130,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D2257EC29210D35005F5C10 /* Graph.cpp in Sources */,
-				4D5ACDB7291A952000756D60 /* Edge.cpp in Sources */,
 				4D1ABF42290004CF0050EC5C /* main.cpp in Sources */,
 				4D5ACDB4291A94FB00756D60 /* Vertex.cpp in Sources */,
 			);
