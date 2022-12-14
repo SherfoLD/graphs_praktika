@@ -12,9 +12,8 @@ void Graph::addVertex(string vertexName){
         throw std::invalid_argument("\nEXCEPTION: Vertex already exists");
 
     adjacencyList[vertexName];
-    //Vertex *newVertex = new Vertex(vertexName);
-    //unique_ptr<Vertex> newVertex(new Vertex(vertexName));
-    vertexHashMap[vertexName] = make_unique<Vertex>(vertexName);
+    Vertex newVertex = Vertex(vertexName);
+    vertexHashMap[vertexName] = newVertex;
 }
 
 void Graph::addEdge(string originVertex, string destiantionVertex, int value){
@@ -112,14 +111,14 @@ void Graph::printSimplePaths(){
 }
 
 void Graph::findSimpleAllSimplePaths(string originVertex, string destinationVertex){
-    if (vertexHashMap[originVertex] -> mark == true)
+    if (vertexHashMap[originVertex].mark == true)
         return;
     
-    vertexHashMap[originVertex] -> editVertex(true);
+    vertexHashMap[originVertex].editVertex(true);
     currentPath.push_back(originVertex);
     if (originVertex == destinationVertex){
         simplePaths.push_back(currentPath);
-        vertexHashMap[originVertex] -> editVertex(false);
+        vertexHashMap[originVertex].editVertex(false);
         currentPath.pop_back();
         return;
     };
@@ -127,7 +126,7 @@ void Graph::findSimpleAllSimplePaths(string originVertex, string destinationVert
         findSimpleAllSimplePaths(nextVertex, destinationVertex);
     }
     currentPath.pop_back();
-    vertexHashMap[originVertex] -> editVertex(false);
+    vertexHashMap[originVertex].editVertex(false);
 }
 
 
