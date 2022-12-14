@@ -20,7 +20,7 @@ using namespace std;
 class Graph{
 private:
     map<string, list<string>> adjacencyList;
-    unordered_map<string, unique_ptr<Vertex>> vertexHashMap;
+    unordered_map<string, Vertex> vertexHashMap;
     unordered_map<string, int> weightOfEdges;
     
     list<string> currentPath;
@@ -35,7 +35,7 @@ public:
     string first(string vertexName);
     string next(string keyVertex, string startVertex);
     string vertex(string keyVertex, string adjacentVertex);
-    void findSimpleAllSimplePaths(string originVertex, string destinationVertex);
+    void findAllSimplePaths(string originVertex, string destinationVertex);
     void print();
     void printSimplePaths();
 };
